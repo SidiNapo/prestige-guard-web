@@ -1,6 +1,10 @@
 import { Shield, Star, Building, Plane, Calendar, Lock } from 'lucide-react';
 import serviceVip from '@/assets/service-vip.jpg';
 import serviceEvent from '@/assets/service-event.jpg';
+import serviceTourist from '@/assets/service-tourist.jpg';
+import serviceWedding from '@/assets/service-wedding.jpg';
+import serviceAdvanced from '@/assets/service-advanced.jpg';
+import serviceResidential from '@/assets/service-residential.jpg';
 
 const ServicesSection = () => {
   const services = [
@@ -22,28 +26,28 @@ const ServicesSection = () => {
       icon: Plane,
       title: 'حماية السياح والزوار',
       description: 'خدمات حماية شاملة للسياح والزوار الدوليين لضمان رحلة آمنة ومريحة في المغرب',
-      image: null,
+      image: serviceTourist,
       features: ['مرشد أمني', 'نقل آمن', 'دعم لغوي'],
     },
     {
       icon: Calendar,
       title: 'حماية الفعاليات الخاصة',
       description: 'تأمين شامل للمناسبات والفعاليات الخاصة من حفلات الزفاف إلى المؤتمرات الدولية',
-      image: null,
+      image: serviceWedding,
       features: ['تخطيط أمني', 'فريق متكامل', 'تنسيق مع السلطات'],
     },
     {
       icon: Lock,
       title: 'الأمن الشخصي المتقدم',
       description: 'خدمات أمنية متقدمة تشمل التقييم الأمني والاستشارات وتدريب الحماية الشخصية',
-      image: null,
+      image: serviceAdvanced,
       features: ['تقييم التهديدات', 'خطط الطوارئ', 'تدريب متخصص'],
     },
     {
       icon: Shield,
       title: 'الحماية السكنية',
       description: 'تأمين المنازل والفيلات الخاصة مع أنظمة مراقبة متطورة وحراسة على مدار الساعة',
-      image: null,
+      image: serviceResidential,
       features: ['حراسة 24/7', 'أنظمة ذكية', 'استجابة سريعة'],
     },
   ];
