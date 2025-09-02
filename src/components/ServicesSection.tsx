@@ -1,12 +1,17 @@
 import { Shield, Star, Building, Plane, Calendar, Lock } from 'lucide-react';
+import { useState } from 'react';
 import serviceVip from '@/assets/service-vip.jpg';
 import serviceEvent from '@/assets/service-event.jpg';
 import serviceTourist from '@/assets/service-tourist.jpg';
 import serviceWedding from '@/assets/service-wedding.jpg';
 import serviceAdvanced from '@/assets/service-advanced.jpg';
 import serviceResidential from '@/assets/service-residential.jpg';
+import ServiceDetailsDrawer from './ServiceDetailsDrawer';
 
 const ServicesSection = () => {
+  const [selectedService, setSelectedService] = useState<any>(null);
+  const [isDrawerOpen, setIsDrawerOpen] = useState(false);
+
   const services = [
     {
       icon: Star,
@@ -14,6 +19,34 @@ const ServicesSection = () => {
       description: 'خدمات حماية متخصصة للشخصيات العامة والفنانين مع الحفاظ على الخصوصية التامة',
       image: serviceVip,
       features: ['حماية 24/7', 'فريق متخصص', 'سرية تامة'],
+      detailedInfo: {
+        overview: 'نوفر خدمات حماية متخصصة وحصرية للمشاهير والنجوم، مع فريق محترف مدرب على أعلى المستويات لضمان الأمان والخصوصية التامة في جميع الأوقات والمناسبات',
+        benefits: [
+          'حماية شخصية على مدار الساعة',
+          'فريق متخصص في التعامل مع الجماهير',
+          'سرية وخصوصية مطلقة',
+          'تنسيق أمني مع الفعاليات',
+          'مرافقة في السفر والتنقلات',
+          'تقييم مستمر للمخاطر'
+        ],
+        process: [
+          'تقييم شامل للاحتياجات الأمنية',
+          'وضع خطة حماية مخصصة',
+          'تخصيص فريق حماية متخصص',
+          'التنفيذ والمتابعة المستمرة'
+        ],
+        packages: [
+          { name: 'باقة الحماية الأساسية', features: ['حماية 8 ساعات', 'حارس واحد', 'تقييم أمني'] },
+          { name: 'باقة الحماية المتقدمة', features: ['حماية 16 ساعة', 'حارسان', 'سيارة مصفحة'], highlighted: true },
+          { name: 'باقة VIP', features: ['حماية 24/7', 'فريق كامل', 'خدمات شاملة'] }
+        ],
+        additionalImages: [serviceVip, serviceEvent],
+        testimonial: {
+          text: 'خدمة احترافية بكل المقاييس، الفريق محترف ومدرب على أعلى مستوى',
+          author: 'أحمد محمد',
+          role: 'فنان مشهور'
+        }
+      }
     },
     {
       icon: Building,
@@ -21,6 +54,34 @@ const ServicesSection = () => {
       description: 'حلول أمنية متكاملة لحماية رجال الأعمال والمدراء التنفيذيين أثناء السفر والاجتماعات',
       image: serviceEvent,
       features: ['تقييم المخاطر', 'مرافقة دائمة', 'تأمين الاجتماعات'],
+      detailedInfo: {
+        overview: 'خدمات حماية متخصصة لرجال الأعمال والمدراء التنفيذيين، نضمن سلامتكم في جميع تنقلاتكم واجتماعاتكم مع الحفاظ على السرية التامة',
+        benefits: [
+          'تقييم شامل للمخاطر الأمنية',
+          'مرافقة دائمة في الرحلات',
+          'تأمين قاعات الاجتماعات',
+          'فحص أمني للمواقع',
+          'تنسيق مع الأمن الفندقي',
+          'خطط طوارئ محكمة'
+        ],
+        process: [
+          'دراسة جدول الأعمال والتنقلات',
+          'تقييم المخاطر المحتملة',
+          'وضع خطة أمنية شاملة',
+          'تنفيذ ومراقبة مستمرة'
+        ],
+        packages: [
+          { name: 'حماية الاجتماعات', features: ['تأمين موقع', 'فريق صغير', 'فحص أمني'] },
+          { name: 'حماية السفر', features: ['مرافقة كاملة', 'تنسيق دولي', 'نقل آمن'], highlighted: true },
+          { name: 'حماية شاملة', features: ['حماية 24/7', 'فريق متكامل', 'كل الخدمات'] }
+        ],
+        additionalImages: [serviceAdvanced, serviceVip],
+        testimonial: {
+          text: 'أشعر بالأمان التام مع فريق Close Protection Forces، احترافية عالية',
+          author: 'سعيد الحسني',
+          role: 'رئيس تنفيذي'
+        }
+      }
     },
     {
       icon: Plane,
@@ -28,6 +89,34 @@ const ServicesSection = () => {
       description: 'خدمات حماية شاملة للسياح والزوار الدوليين لضمان رحلة آمنة ومريحة في المغرب',
       image: serviceTourist,
       features: ['مرشد أمني', 'نقل آمن', 'دعم لغوي'],
+      detailedInfo: {
+        overview: 'نقدم خدمات حماية ومرافقة شاملة للسياح والزوار الدوليين، لضمان تجربة سياحية آمنة وممتعة في المغرب',
+        benefits: [
+          'مرشد أمني محترف',
+          'نقل آمن ومريح',
+          'دعم لغوي متعدد',
+          'معرفة بالمناطق السياحية',
+          'تنسيق مع الفنادق',
+          'خدمة على مدار الساعة'
+        ],
+        process: [
+          'استقبال من المطار',
+          'توفير مرافق أمني مختص',
+          'مرافقة في الجولات السياحية',
+          'التوصيل الآمن للمطار'
+        ],
+        packages: [
+          { name: 'باقة اليوم الواحد', features: ['8 ساعات', 'مرشد واحد', 'نقل عادي'] },
+          { name: 'باقة الأسبوع', features: ['7 أيام', 'فريق مرافقة', 'نقل فاخر'], highlighted: true },
+          { name: 'باقة الشهر', features: ['30 يوم', 'فريق كامل', 'خدمات VIP'] }
+        ],
+        additionalImages: [serviceTourist, serviceWedding],
+        testimonial: {
+          text: 'تجربة رائعة، شعرت بالأمان طوال رحلتي في المغرب',
+          author: 'جون سميث',
+          role: 'سائح من الولايات المتحدة'
+        }
+      }
     },
     {
       icon: Calendar,
@@ -35,6 +124,34 @@ const ServicesSection = () => {
       description: 'تأمين شامل للمناسبات والفعاليات الخاصة من حفلات الزفاف إلى المؤتمرات الدولية',
       image: serviceWedding,
       features: ['تخطيط أمني', 'فريق متكامل', 'تنسيق مع السلطات'],
+      detailedInfo: {
+        overview: 'نوفر خدمات تأمين شاملة للفعاليات والمناسبات الخاصة، من الأعراس الفخمة إلى المؤتمرات الدولية الكبرى',
+        benefits: [
+          'تخطيط أمني شامل',
+          'فريق متخصص في الفعاليات',
+          'تنسيق مع السلطات المحلية',
+          'مراقبة المداخل والمخارج',
+          'خطط طوارئ محكمة',
+          'تأمين كبار الشخصيات'
+        ],
+        process: [
+          'معاينة موقع الفعالية',
+          'وضع خطة أمنية مفصلة',
+          'تنسيق مع منظمي الفعالية',
+          'تنفيذ ومراقبة أثناء الحدث'
+        ],
+        packages: [
+          { name: 'فعاليات صغيرة', features: ['حتى 100 شخص', '5 حراس', 'تأمين أساسي'] },
+          { name: 'فعاليات متوسطة', features: ['حتى 500 شخص', '15 حارس', 'تأمين متقدم'], highlighted: true },
+          { name: 'فعاليات كبرى', features: ['أكثر من 500', 'فريق كامل', 'تأمين شامل'] }
+        ],
+        additionalImages: [serviceWedding, serviceEvent],
+        testimonial: {
+          text: 'نظموا أمن حفل زفافي بشكل رائع، كل شيء كان مثالياً',
+          author: 'فاطمة الزهراء',
+          role: 'عروس سعيدة'
+        }
+      }
     },
     {
       icon: Lock,
@@ -42,6 +159,34 @@ const ServicesSection = () => {
       description: 'خدمات أمنية متقدمة تشمل التقييم الأمني والاستشارات وتدريب الحماية الشخصية',
       image: serviceAdvanced,
       features: ['تقييم التهديدات', 'خطط الطوارئ', 'تدريب متخصص'],
+      detailedInfo: {
+        overview: 'خدمات أمنية متقدمة ومتخصصة تشمل التقييم الشامل للمخاطر، الاستشارات الأمنية، وبرامج التدريب على الحماية الشخصية',
+        benefits: [
+          'تقييم شامل للتهديدات',
+          'خطط طوارئ مخصصة',
+          'تدريب على الدفاع عن النفس',
+          'استشارات أمنية متخصصة',
+          'تقنيات مراقبة متقدمة',
+          'بروتوكولات أمنية محكمة'
+        ],
+        process: [
+          'تحليل شامل للوضع الأمني',
+          'تحديد نقاط الضعف والتهديدات',
+          'وضع استراتيجية أمنية متكاملة',
+          'تنفيذ وتدريب ومتابعة'
+        ],
+        packages: [
+          { name: 'استشارة أمنية', features: ['تقييم مبدئي', 'تقرير مفصل', 'توصيات'] },
+          { name: 'حماية متقدمة', features: ['تقييم شامل', 'خطة متكاملة', 'تدريب'], highlighted: true },
+          { name: 'برنامج VIP', features: ['كل الخدمات', 'فريق مخصص', 'دعم مستمر'] }
+        ],
+        additionalImages: [serviceAdvanced, serviceResidential],
+        testimonial: {
+          text: 'برنامج تدريبي ممتاز، تعلمت الكثير عن الأمن الشخصي',
+          author: 'خالد العمري',
+          role: 'مدير أمني'
+        }
+      }
     },
     {
       icon: Shield,
@@ -49,6 +194,34 @@ const ServicesSection = () => {
       description: 'تأمين المنازل والفيلات الخاصة مع أنظمة مراقبة متطورة وحراسة على مدار الساعة',
       image: serviceResidential,
       features: ['حراسة 24/7', 'أنظمة ذكية', 'استجابة سريعة'],
+      detailedInfo: {
+        overview: 'خدمات حماية سكنية شاملة للمنازل والفيلات الخاصة، تجمع بين الحراسة البشرية المدربة والأنظمة الأمنية الذكية المتطورة',
+        benefits: [
+          'حراسة على مدار الساعة',
+          'أنظمة مراقبة ذكية',
+          'استجابة سريعة للطوارئ',
+          'دوريات أمنية منتظمة',
+          'تحكم في الدخول والخروج',
+          'تقارير أمنية دورية'
+        ],
+        process: [
+          'معاينة الموقع السكني',
+          'تصميم نظام أمني متكامل',
+          'تركيب الأنظمة وتدريب الحراس',
+          'مراقبة ودعم مستمر'
+        ],
+        packages: [
+          { name: 'حماية أساسية', features: ['حارس نهاري', 'كاميرات', 'إنذار'] },
+          { name: 'حماية متقدمة', features: ['حراسة 24/7', 'نظام ذكي', 'دوريات'], highlighted: true },
+          { name: 'حماية فاخرة', features: ['فريق كامل', 'تقنيات متطورة', 'خدمات VIP'] }
+        ],
+        additionalImages: [serviceResidential, serviceAdvanced],
+        testimonial: {
+          text: 'أشعر بالأمان التام في منزلي بفضل خدماتهم المتميزة',
+          author: 'ليلى الحمداني',
+          role: 'صاحبة فيلا'
+        }
+      }
     },
   ];
 
@@ -122,7 +295,13 @@ const ServicesSection = () => {
                 </div>
 
                 {/* CTA */}
-                <button className="w-full py-3 bg-gradient-to-r from-primary to-primary-glow text-secondary font-cairo font-semibold rounded-xl opacity-0 group-hover:opacity-100 transition-all duration-300 hover:shadow-lg">
+                <button 
+                  onClick={() => {
+                    setSelectedService(service);
+                    setIsDrawerOpen(true);
+                  }}
+                  className="w-full py-3 bg-gradient-to-r from-primary to-primary-glow text-secondary font-cairo font-semibold rounded-xl opacity-0 group-hover:opacity-100 transition-all duration-300 hover:shadow-lg"
+                >
                   اعرف المزيد
                 </button>
               </div>
@@ -133,6 +312,16 @@ const ServicesSection = () => {
           ))}
         </div>
       </div>
+      
+      {/* Service Details Drawer */}
+      <ServiceDetailsDrawer 
+        service={selectedService}
+        isOpen={isDrawerOpen}
+        onClose={() => {
+          setIsDrawerOpen(false);
+          setSelectedService(null);
+        }}
+      />
     </section>
   );
 };
