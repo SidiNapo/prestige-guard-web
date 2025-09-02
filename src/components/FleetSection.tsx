@@ -1,13 +1,10 @@
 import { Car, Shield, Gauge, Lock, ChevronLeft, ChevronRight } from 'lucide-react';
 import { useState } from 'react';
-import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 import fleet1 from '@/assets/fleet-1.jpg';
 import fleet2 from '@/assets/fleet-2.jpg';
-import fleet3 from '@/assets/fleet-3.jpg';
 
 const FleetSection = () => {
   const [currentVehicle, setCurrentVehicle] = useState(0);
-  const { ref: sectionRef } = useScrollAnimation<HTMLElement>({ animationClass: 'animate-zoom-in' });
   
   const vehicles = [
     {
@@ -46,7 +43,7 @@ const FleetSection = () => {
     },
     {
       name: 'BMW 7 Series Security',
-      image: fleet3,
+      image: null,
       type: 'سيارة فاخرة',
       features: [
         'درع خفيف الوزن',
@@ -72,7 +69,7 @@ const FleetSection = () => {
   };
 
   return (
-    <section ref={sectionRef} id="fleet" className="py-20 bg-gradient-to-b from-card to-background" data-animate>
+    <section id="fleet" className="py-20 bg-gradient-to-b from-card to-background">
       <div className="container mx-auto px-4">
         {/* Section Header */}
         <div className="text-center mb-16">

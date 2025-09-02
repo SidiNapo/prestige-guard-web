@@ -1,27 +1,17 @@
 import { MapPin, Shield, Clock, Globe } from 'lucide-react';
-import { useScrollAnimation } from '@/hooks/useScrollAnimation';
-import moroccoMap from '@/assets/morocco-map.jpg';
 
 const CoverageSection = () => {
-  const { ref: sectionRef } = useScrollAnimation({ animationClass: 'animate-slide-up' });
-  const { ref: mapRef } = useScrollAnimation({ animationClass: 'animate-slide-right', threshold: 0.3 });
-  const { ref: citiesRef } = useScrollAnimation({ animationClass: 'animate-slide-left', threshold: 0.3 });
-
   const cities = [
     { name: 'الدار البيضاء', coverage: 'تغطية كاملة', response: '10 دقائق' },
     { name: 'الرباط', coverage: 'تغطية كاملة', response: '10 دقائق' },
     { name: 'مراكش', coverage: 'تغطية كاملة', response: '15 دقائق' },
     { name: 'طنجة', coverage: 'تغطية كاملة', response: '15 دقائق' },
-    { name: 'فاس', coverage: 'تغطية كاملة', response: '20 دقائق' },
-    { name: 'أكادير', coverage: 'تغطية كاملة', response: '20 دقائق' },
-    { name: 'شفشاون', coverage: 'تغطية جزئية', response: '25 دقائق' },
-    { name: 'الصويرة', coverage: 'تغطية جزئية', response: '25 دقائق' },
-    { name: 'مكناس', coverage: 'تغطية جزئية', response: '30 دقائق' },
-    { name: 'ورزازات', coverage: 'تغطية جزئية', response: '30 دقائق' },
+    { name: 'فاس', coverage: 'تغطية جزئية', response: '20 دقائق' },
+    { name: 'أكادير', coverage: 'تغطية جزئية', response: '20 دقائق' },
   ];
 
   return (
-    <section ref={sectionRef} id="coverage" className="py-20 bg-background relative overflow-hidden" data-animate>
+    <section id="coverage" className="py-20 bg-background relative overflow-hidden">
       {/* Animated Background */}
       <div className="absolute inset-0">
         <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-secondary/5"></div>
@@ -46,80 +36,73 @@ const CoverageSection = () => {
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* Map Visualization */}
-          <div ref={mapRef} className="relative" data-animate>
-            <div className="aspect-video lg:aspect-square rounded-3xl overflow-hidden shadow-2xl border border-border relative group">
-              <img 
-                src={moroccoMap} 
-                alt="خريطة المغرب - نطاق تغطيتنا" 
-                className="w-full h-full object-cover"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent pointer-events-none"></div>
-              
-              {/* Animated Overlay Points */}
-              <div className="absolute inset-0">
-                {/* Major Cities with Pulsing Markers */}
-                <div className="absolute top-[25%] left-[35%] flex items-center justify-center">
-                  <div className="absolute w-8 h-8 bg-secondary/30 rounded-full animate-ping"></div>
-                  <div className="w-3 h-3 bg-secondary rounded-full z-10"></div>
-                </div>
-                <div className="absolute top-[30%] left-[30%] flex items-center justify-center">
-                  <div className="absolute w-8 h-8 bg-secondary/30 rounded-full animate-ping animation-delay-200"></div>
-                  <div className="w-3 h-3 bg-secondary rounded-full z-10"></div>
-                </div>
-                <div className="absolute top-[45%] left-[25%] flex items-center justify-center">
-                  <div className="absolute w-8 h-8 bg-secondary/30 rounded-full animate-ping animation-delay-400"></div>
-                  <div className="w-3 h-3 bg-secondary rounded-full z-10"></div>
-                </div>
-                <div className="absolute top-[60%] left-[20%] flex items-center justify-center">
-                  <div className="absolute w-8 h-8 bg-secondary/30 rounded-full animate-ping animation-delay-600"></div>
-                  <div className="w-3 h-3 bg-secondary rounded-full z-10"></div>
+          <div className="relative">
+            <div className="aspect-square bg-gradient-to-br from-primary to-primary-glow rounded-3xl p-8 relative overflow-hidden">
+              {/* Morocco Map Placeholder */}
+              <div className="w-full h-full flex items-center justify-center">
+                <div className="relative">
+                  {/* Animated Circles for Cities */}
+                  <div className="absolute top-10 left-20 w-4 h-4 bg-secondary rounded-full animate-pulse"></div>
+                  <div className="absolute top-20 right-10 w-4 h-4 bg-secondary rounded-full animate-pulse animation-delay-200"></div>
+                  <div className="absolute bottom-20 left-30 w-4 h-4 bg-secondary rounded-full animate-pulse animation-delay-400"></div>
+                  <div className="absolute bottom-10 right-20 w-4 h-4 bg-secondary rounded-full animate-pulse animation-delay-600"></div>
+                  
+                  {/* Central Shield Icon */}
+                  <Shield className="h-32 w-32 text-secondary/30" />
+                  
+                  {/* Connection Lines */}
+                  <svg className="absolute inset-0 w-full h-full" viewBox="0 0 200 200">
+                    <line x1="50" y1="40" x2="100" y2="100" stroke="currentColor" strokeWidth="1" className="text-secondary/20" />
+                    <line x1="150" y1="50" x2="100" y2="100" stroke="currentColor" strokeWidth="1" className="text-secondary/20" />
+                    <line x1="60" y1="150" x2="100" y2="100" stroke="currentColor" strokeWidth="1" className="text-secondary/20" />
+                    <line x1="140" y1="160" x2="100" y2="100" stroke="currentColor" strokeWidth="1" className="text-secondary/20" />
+                  </svg>
                 </div>
               </div>
 
               {/* Map Labels */}
-              <div className="absolute top-8 left-8 px-4 py-2 bg-secondary/90 backdrop-blur-sm rounded-full">
-                <span className="text-sm font-cairo text-primary font-semibold">شمال المغرب</span>
+              <div className="absolute top-8 left-8 px-3 py-1 bg-secondary/20 backdrop-blur-sm rounded-full">
+                <span className="text-xs font-cairo text-foreground">شمال المغرب</span>
               </div>
-              <div className="absolute bottom-8 right-8 px-4 py-2 bg-secondary/90 backdrop-blur-sm rounded-full">
-                <span className="text-sm font-cairo text-primary font-semibold">جنوب المغرب</span>
-              </div>
-              
-              {/* Coverage Badge */}
-              <div className="absolute top-8 right-8 px-4 py-2 bg-accent/90 backdrop-blur-sm rounded-full flex items-center space-x-2 space-x-reverse">
-                <Shield className="h-4 w-4 text-primary" />
-                <span className="text-sm font-cairo text-primary font-semibold">تغطية كاملة</span>
+              <div className="absolute bottom-8 right-8 px-3 py-1 bg-secondary/20 backdrop-blur-sm rounded-full">
+                <span className="text-xs font-cairo text-foreground">جنوب المغرب</span>
               </div>
             </div>
           </div>
 
           {/* Cities List */}
-          <div ref={citiesRef} data-animate>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 max-h-[600px] overflow-y-auto custom-scrollbar p-2">
+          <div>
+            <div className="space-y-4">
               {cities.map((city, index) => (
                 <div
                   key={index}
-                  className="group p-4 bg-card rounded-xl border border-border hover:border-secondary/50 transition-all duration-300 hover:shadow-lg hover:scale-105"
-                  style={{ animationDelay: `${index * 50}ms` }}
+                  className="group p-6 bg-card rounded-2xl border border-border hover:border-secondary/50 transition-all duration-300 hover:shadow-lg"
+                  style={{ animationDelay: `${index * 100}ms` }}
                 >
-                  <div className="flex items-center space-x-3 space-x-reverse">
-                    <div className="p-2 bg-secondary/10 rounded-lg group-hover:bg-secondary/20 transition-colors duration-300">
-                      <MapPin className="h-5 w-5 text-secondary" />
-                    </div>
-                    <div className="flex-1">
-                      <h3 className="text-base font-tajawal font-bold text-foreground">
-                        {city.name}
-                      </h3>
-                      <p className="text-xs text-muted-foreground font-cairo">
-                        {city.coverage}
-                      </p>
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center space-x-4 space-x-reverse">
+                      <div className="p-3 bg-secondary/10 rounded-xl group-hover:bg-secondary/20 transition-colors duration-300">
+                        <MapPin className="h-6 w-6 text-secondary" />
+                      </div>
+                      <div>
+                        <h3 className="text-xl font-tajawal font-bold text-foreground mb-1">
+                          {city.name}
+                        </h3>
+                        <p className="text-sm text-muted-foreground font-cairo">
+                          {city.coverage}
+                        </p>
+                      </div>
                     </div>
                     <div className="text-right">
-                      <div className="flex items-center space-x-1 space-x-reverse">
-                        <Clock className="h-3 w-3 text-accent" />
-                        <span className="text-xs font-cairo text-accent font-semibold">
+                      <div className="flex items-center space-x-2 space-x-reverse">
+                        <Clock className="h-4 w-4 text-accent" />
+                        <span className="text-sm font-cairo text-accent font-semibold">
                           {city.response}
                         </span>
                       </div>
+                      <span className="text-xs text-muted-foreground font-cairo">
+                        زمن الاستجابة
+                      </span>
                     </div>
                   </div>
                 </div>

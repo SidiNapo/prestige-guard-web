@@ -23,7 +23,7 @@ const HeroSection = () => {
   ];
 
   return (
-    <section id="home" className="relative h-screen overflow-hidden pt-20 md:pt-0">
+    <section id="home" className="relative h-screen overflow-hidden">
       {/* Background Carousel */}
       <div className="absolute inset-0">
         {slides.map((slide, index) => (
