@@ -1,7 +1,9 @@
 import { Star, Quote, ChevronLeft, ChevronRight } from 'lucide-react';
 import { useState } from 'react';
+import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 
 const TestimonialsSection = () => {
+  const { ref: sectionRef, isVisible } = useScrollAnimation({ threshold: 0.2 });
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const testimonials = [
@@ -44,7 +46,7 @@ const TestimonialsSection = () => {
   };
 
   return (
-    <section className="py-20 bg-background relative overflow-hidden">
+    <section ref={sectionRef} className="py-20 bg-background relative overflow-hidden">
       {/* Decorative Elements */}
       <div className="absolute inset-0">
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[800px] bg-gradient-radial from-secondary/5 to-transparent rounded-full blur-3xl"></div>
@@ -52,7 +54,7 @@ const TestimonialsSection = () => {
 
       <div className="container mx-auto px-4 relative z-10">
         {/* Section Header */}
-        <div className="text-center mb-16">
+        <div className={`text-center mb-16 ${isVisible ? 'animate-slideInUp' : 'opacity-0'}`}>
           <div className="inline-flex items-center space-x-2 space-x-reverse px-4 py-2 bg-secondary/20 backdrop-blur-sm rounded-full mb-4">
             <Quote className="h-4 w-4 text-secondary" />
             <span className="text-secondary font-cairo text-sm">آراء عملائنا</span>

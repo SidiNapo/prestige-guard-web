@@ -1,6 +1,8 @@
 import { Shield, Award, Clock, Users, CheckCircle, Star, TrendingUp, Globe } from 'lucide-react';
+import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 
 const WhyChooseUs = () => {
+  const { ref: sectionRef, isVisible } = useScrollAnimation({ threshold: 0.2 });
   const features = [
     {
       icon: Award,
@@ -40,7 +42,7 @@ const WhyChooseUs = () => {
   ];
 
   return (
-    <section className="py-20 bg-gradient-to-b from-card to-background relative overflow-hidden">
+    <section ref={sectionRef} className="py-20 bg-gradient-to-b from-card to-background relative overflow-hidden">
       {/* Animated Background */}
       <div className="absolute inset-0">
         <div className="absolute inset-0 bg-gradient-mesh opacity-10"></div>
@@ -50,7 +52,7 @@ const WhyChooseUs = () => {
 
       <div className="container mx-auto px-4 relative z-10">
         {/* Section Header */}
-        <div className="text-center mb-16">
+        <div className={`text-center mb-16 ${isVisible ? 'animate-slideInUp' : 'opacity-0'}`}>
           <div className="inline-flex items-center space-x-2 space-x-reverse px-4 py-2 bg-secondary/20 backdrop-blur-sm rounded-full mb-4">
             <Star className="h-4 w-4 text-secondary animate-spin-slow" />
             <span className="text-secondary font-cairo text-sm">التميز والاحترافية</span>

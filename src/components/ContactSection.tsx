@@ -1,7 +1,9 @@
 import { Phone, Mail, MapPin, MessageCircle, Send, Clock, Shield } from 'lucide-react';
 import { useState } from 'react';
+import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 
 const ContactSection = () => {
+  const { ref: sectionRef, isVisible } = useScrollAnimation({ threshold: 0.2 });
   const [formData, setFormData] = useState({
     name: '',
     phone: '',
@@ -53,10 +55,10 @@ const ContactSection = () => {
   ];
 
   return (
-    <section id="contact" className="py-20 bg-gradient-to-b from-background to-card">
+    <section ref={sectionRef} id="contact" className="py-20 bg-gradient-to-b from-background to-card relative overflow-hidden">
       <div className="container mx-auto px-4">
         {/* Section Header */}
-        <div className="text-center mb-16">
+        <div className={`text-center mb-16 ${isVisible ? 'animate-slideInUp' : 'opacity-0'}`}>
           <div className="inline-flex items-center space-x-2 space-x-reverse px-4 py-2 bg-secondary/20 backdrop-blur-sm rounded-full mb-4">
             <Shield className="h-4 w-4 text-secondary" />
             <span className="text-secondary font-cairo text-sm">تواصل معنا</span>
