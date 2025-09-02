@@ -101,20 +101,20 @@ const HeroSection = () => {
             </div>
 
             {/* Stats */}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-6 animate-fade-up animation-delay-600 relative z-30 mb-20">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-6 animate-fade-up animation-delay-600 relative">
               {stats.map((stat, index) => (
                 <div
                   key={index}
-                  className="relative flex flex-col items-center p-3 sm:p-4 md:p-6 bg-background/30 backdrop-blur-md rounded-xl border border-secondary/40 hover:bg-secondary/20 transition-all duration-300 group shadow-lg"
+                  className="relative overflow-hidden flex flex-col items-center p-3 sm:p-4 md:p-6 bg-background/60 backdrop-blur-lg rounded-xl border border-secondary/40 hover:bg-secondary/20 transition-all duration-300 group"
                 >
-                  <div className="absolute inset-0 flex items-center justify-center opacity-10">
-                    <stat.icon className="h-16 sm:h-20 w-16 sm:w-20 text-secondary" />
+                  <div className="absolute inset-0 flex items-center justify-center opacity-5 pointer-events-none">
+                    <stat.icon className="h-12 sm:h-16 md:h-20 w-12 sm:w-16 md:w-20 text-secondary" />
                   </div>
-                  <div className="relative z-10 flex flex-col items-center">
-                    <span className="text-xl sm:text-2xl md:text-3xl font-tajawal font-bold text-foreground mb-1">
+                  <div className="relative flex flex-col items-center">
+                    <span className="text-lg sm:text-2xl md:text-3xl font-tajawal font-bold text-foreground mb-1">
                       {stat.value}
                     </span>
-                    <span className="text-[10px] sm:text-xs md:text-sm font-cairo text-foreground/90 text-center">
+                    <span className="text-[10px] sm:text-xs md:text-sm font-cairo text-foreground/90 text-center leading-tight">
                       {stat.label}
                     </span>
                   </div>
