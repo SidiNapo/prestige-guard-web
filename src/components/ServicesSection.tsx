@@ -7,11 +7,9 @@ import serviceWedding from '@/assets/service-wedding.jpg';
 import serviceAdvanced from '@/assets/service-advanced.jpg';
 import serviceResidential from '@/assets/service-residential.jpg';
 import ServiceDetailsDrawer from './ServiceDetailsDrawer';
-import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 
 const ServicesSection = () => {
   const [selectedService, setSelectedService] = useState<any>(null);
-  const { ref, isVisible } = useScrollAnimation();
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
 
   const services = [

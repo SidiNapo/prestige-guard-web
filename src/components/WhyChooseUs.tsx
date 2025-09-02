@@ -1,8 +1,6 @@
 import { Shield, Award, Clock, Users, CheckCircle, Star, TrendingUp, Globe } from 'lucide-react';
-import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 
 const WhyChooseUs = () => {
-  const { ref, isVisible } = useScrollAnimation();
   const features = [
     {
       icon: Award,

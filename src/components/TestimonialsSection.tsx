@@ -1,9 +1,7 @@
 import { Star, Quote, ChevronLeft, ChevronRight } from 'lucide-react';
 import { useState } from 'react';
-import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 
 const TestimonialsSection = () => {
-  const { ref, isVisible } = useScrollAnimation();
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const testimonials = [
