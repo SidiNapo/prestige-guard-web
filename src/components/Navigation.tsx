@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Menu, X, Phone, Shield } from 'lucide-react';
-import logo from '/lovable-uploads/975a0036-e738-40a2-b3c3-0f18e7eb4c43.png';
+const logo = '/lovable-uploads/299a0b3d-16b0-498a-b224-fd3d88d44733.png';
 
 const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -35,7 +35,7 @@ const Navigation = () => {
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <div className="flex items-center space-x-4 space-x-reverse">
-            <img src={logo} alt="Close Protection Forces" className="h-14 w-14 object-contain" />
+            <img src={logo} alt="Close Protection Forces" className="h-12 w-12 object-contain" />
             <div className="hidden md:block">
               <h1 className="text-secondary font-tajawal font-bold text-xl">Close Protection Forces</h1>
               <p className="text-muted-foreground text-xs font-cairo">حماية احترافية على مدار الساعة</p>

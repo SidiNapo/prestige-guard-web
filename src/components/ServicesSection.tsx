@@ -249,10 +249,14 @@ const ServicesSection = () => {
           {services.map((service, index) => (
             <div
               key={index}
-              className={`group relative bg-card rounded-2xl overflow-hidden border border-border hover:border-secondary/50 transition-all duration-500 hover:shadow-gold hover:-translate-y-2 ${
+              className={`group relative bg-card rounded-2xl overflow-hidden border border-border hover:border-secondary/50 transition-all duration-500 hover:shadow-gold hover:-translate-y-2 cursor-pointer ${
                 isVisible ? 'animate-scaleIn' : 'opacity-0'
               }`}
               style={{ animationDelay: `${index * 100}ms` }}
+              onClick={() => {
+                setSelectedService(service);
+                setIsDrawerOpen(true);
+              }}
             >
               {/* Image or Icon Background */}
               <div className="h-48 relative overflow-hidden bg-gradient-to-br from-primary to-primary-glow">
@@ -299,15 +303,13 @@ const ServicesSection = () => {
                 </div>
 
                 {/* CTA */}
-                <button 
-                  onClick={() => {
-                    setSelectedService(service);
-                    setIsDrawerOpen(true);
-                  }}
-                  className="w-full py-3 bg-gradient-to-r from-primary to-primary-glow text-secondary font-cairo font-semibold rounded-xl opacity-0 group-hover:opacity-100 transition-all duration-300 hover:shadow-lg"
-                >
-                  اعرف المزيد
-                </button>
+                <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-background/90 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <button 
+                    className="w-full py-3 bg-gradient-gold text-primary font-cairo font-semibold rounded-xl hover:shadow-gold transition-all duration-300 hover:scale-105"
+                  >
+                    اعرف المزيد
+                  </button>
+                </div>
               </div>
 
               {/* Hover Effect Border */}

@@ -1,5 +1,5 @@
 import { Shield, Phone, Mail, MapPin, Facebook, Instagram, Twitter, Linkedin } from 'lucide-react';
-import logo from '/lovable-uploads/975a0036-e738-40a2-b3c3-0f18e7eb4c43.png';
+const logo = '/lovable-uploads/299a0b3d-16b0-498a-b224-fd3d88d44733.png';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
