@@ -20,14 +20,14 @@ const ContactSection = () => {
     {
       icon: Phone,
       title: 'اتصل بنا',
-      value: '+212 6 00 00 00 00',
-      action: 'tel:+212600000000',
+      value: '+212 619-784088',
+      action: 'tel:+212619784088',
     },
     {
       icon: MessageCircle,
       title: 'واتساب',
-      value: '+212 6 00 00 00 00',
-      action: 'https://wa.me/212600000000',
+      value: '+212 619-784088',
+      action: 'https://wa.me/212619784088',
     },
     {
       icon: Mail,
@@ -99,7 +99,7 @@ const ContactSection = () => {
                     value={formData.phone}
                     onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                     className="w-full px-4 py-3 bg-background border border-border rounded-xl focus:border-secondary focus:outline-none transition-colors font-cairo"
-                    placeholder="+212 6 00 00 00 00"
+                    placeholder="+212 619-784088"
                     required
                   />
                 </div>
@@ -207,7 +207,7 @@ const ContactSection = () => {
                 فريق الطوارئ جاهز للاستجابة الفورية في أي وقت
               </p>
               <a
-                href="tel:+212600000000"
+                href="tel:+212619784088"
                 className="inline-flex items-center space-x-2 space-x-reverse px-6 py-3 bg-foreground/10 backdrop-blur-sm rounded-xl hover:bg-foreground/20 transition-all duration-300"
               >
                 <Phone className="h-5 w-5 text-foreground" />

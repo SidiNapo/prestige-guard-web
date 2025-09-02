@@ -9,6 +9,7 @@ import TestimonialsSection from '@/components/TestimonialsSection';
 import CoverageSection from '@/components/CoverageSection';
 import ContactSection from '@/components/ContactSection';
 import Footer from '@/components/Footer';
+import WhatsAppButton from '@/components/WhatsAppButton';
 
 const Index = () => {
   useEffect(() => {
@@ -48,6 +49,7 @@ const Index = () => {
       <CoverageSection />
       <ContactSection />
       <Footer />
+      <WhatsAppButton />
     </div>
   );
 };
