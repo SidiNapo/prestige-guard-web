@@ -38,36 +38,103 @@ const CoverageSection = () => {
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* Map Visualization */}
-          <div className="relative">
-            <div className="aspect-square bg-gradient-to-br from-primary to-primary-glow rounded-3xl p-8 relative overflow-hidden">
-              {/* Morocco Map Placeholder */}
-              <div className="w-full h-full flex items-center justify-center">
-                <div className="relative">
-                  {/* Animated Circles for Cities */}
-                  <div className="absolute top-10 left-20 w-4 h-4 bg-secondary rounded-full animate-pulse"></div>
-                  <div className="absolute top-20 right-10 w-4 h-4 bg-secondary rounded-full animate-pulse animation-delay-200"></div>
-                  <div className="absolute bottom-20 left-30 w-4 h-4 bg-secondary rounded-full animate-pulse animation-delay-400"></div>
-                  <div className="absolute bottom-10 right-20 w-4 h-4 bg-secondary rounded-full animate-pulse animation-delay-600"></div>
+          <div className={`relative transition-all duration-700 ${
+            isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-95'
+          }`}>
+            <div className="aspect-square bg-gradient-to-br from-primary/10 to-primary/5 rounded-3xl p-8 relative overflow-hidden border border-primary/20">
+              {/* Background Pattern */}
+              <div className="absolute inset-0 opacity-10">
+                <div className="absolute inset-0" style={{
+                  backgroundImage: 'radial-gradient(circle at 50% 50%, hsl(var(--secondary)) 1px, transparent 1px)',
+                  backgroundSize: '20px 20px'
+                }}></div>
+              </div>
+
+              {/* Morocco Map Visualization */}
+              <div className="w-full h-full flex items-center justify-center relative">
+                {/* Central Shield Icon */}
+                <div className="relative z-10">
+                  <Shield className="h-32 w-32 text-secondary drop-shadow-lg" />
                   
-                  {/* Central Shield Icon */}
-                  <Shield className="h-32 w-32 text-secondary/30" />
-                  
-                  {/* Connection Lines */}
-                  <svg className="absolute inset-0 w-full h-full" viewBox="0 0 200 200">
-                    <line x1="50" y1="40" x2="100" y2="100" stroke="currentColor" strokeWidth="1" className="text-secondary/20" />
-                    <line x1="150" y1="50" x2="100" y2="100" stroke="currentColor" strokeWidth="1" className="text-secondary/20" />
-                    <line x1="60" y1="150" x2="100" y2="100" stroke="currentColor" strokeWidth="1" className="text-secondary/20" />
-                    <line x1="140" y1="160" x2="100" y2="100" stroke="currentColor" strokeWidth="1" className="text-secondary/20" />
-                  </svg>
+                  {/* Animated Glow */}
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <div className="w-40 h-40 bg-secondary/20 rounded-full animate-pulse blur-xl"></div>
+                  </div>
                 </div>
+                
+                {/* City Points */}
+                <div className="absolute inset-0">
+                  {/* North Cities */}
+                  <div className="absolute top-[20%] left-[25%] group">
+                    <div className="w-3 h-3 bg-secondary rounded-full animate-pulse shadow-lg"></div>
+                    <div className="absolute -top-6 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity">
+                      <span className="text-xs font-cairo text-foreground bg-background/90 px-2 py-1 rounded whitespace-nowrap">طنجة</span>
+                    </div>
+                  </div>
+                  
+                  <div className="absolute top-[30%] right-[30%] group">
+                    <div className="w-3 h-3 bg-secondary rounded-full animate-pulse animation-delay-200 shadow-lg"></div>
+                    <div className="absolute -top-6 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity">
+                      <span className="text-xs font-cairo text-foreground bg-background/90 px-2 py-1 rounded whitespace-nowrap">فاس</span>
+                    </div>
+                  </div>
+                  
+                  {/* Central Cities */}
+                  <div className="absolute top-[45%] left-[35%] group">
+                    <div className="w-4 h-4 bg-secondary rounded-full animate-pulse animation-delay-400 shadow-lg"></div>
+                    <div className="absolute -top-6 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity">
+                      <span className="text-xs font-cairo text-foreground bg-background/90 px-2 py-1 rounded whitespace-nowrap">الرباط</span>
+                    </div>
+                  </div>
+                  
+                  <div className="absolute bottom-[40%] right-[25%] group">
+                    <div className="w-4 h-4 bg-secondary rounded-full animate-pulse animation-delay-600 shadow-lg"></div>
+                    <div className="absolute -top-6 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity">
+                      <span className="text-xs font-cairo text-foreground bg-background/90 px-2 py-1 rounded whitespace-nowrap">الدار البيضاء</span>
+                    </div>
+                  </div>
+                  
+                  {/* South Cities */}
+                  <div className="absolute bottom-[25%] left-[40%] group">
+                    <div className="w-3 h-3 bg-secondary rounded-full animate-pulse animation-delay-800 shadow-lg"></div>
+                    <div className="absolute -top-6 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity">
+                      <span className="text-xs font-cairo text-foreground bg-background/90 px-2 py-1 rounded whitespace-nowrap">مراكش</span>
+                    </div>
+                  </div>
+                  
+                  <div className="absolute bottom-[20%] right-[35%] group">
+                    <div className="w-3 h-3 bg-secondary rounded-full animate-pulse animation-delay-1000 shadow-lg"></div>
+                    <div className="absolute -top-6 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity">
+                      <span className="text-xs font-cairo text-foreground bg-background/90 px-2 py-1 rounded whitespace-nowrap">أكادير</span>
+                    </div>
+                  </div>
+                </div>
+                
+                {/* Connection Lines SVG */}
+                <svg className="absolute inset-0 w-full h-full pointer-events-none" viewBox="0 0 100 100">
+                  <defs>
+                    <linearGradient id="lineGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" stopColor="hsl(var(--secondary))" stopOpacity="0.2" />
+                      <stop offset="50%" stopColor="hsl(var(--secondary))" stopOpacity="0.5" />
+                      <stop offset="100%" stopColor="hsl(var(--secondary))" stopOpacity="0.2" />
+                    </linearGradient>
+                  </defs>
+                  {/* Connect cities to center */}
+                  <line x1="25" y1="20" x2="50" y2="50" stroke="url(#lineGradient)" strokeWidth="0.5" />
+                  <line x1="70" y1="30" x2="50" y2="50" stroke="url(#lineGradient)" strokeWidth="0.5" />
+                  <line x1="35" y1="45" x2="50" y2="50" stroke="url(#lineGradient)" strokeWidth="0.5" />
+                  <line x1="75" y1="60" x2="50" y2="50" stroke="url(#lineGradient)" strokeWidth="0.5" />
+                  <line x1="40" y1="75" x2="50" y2="50" stroke="url(#lineGradient)" strokeWidth="0.5" />
+                  <line x1="65" y1="80" x2="50" y2="50" stroke="url(#lineGradient)" strokeWidth="0.5" />
+                </svg>
               </div>
 
               {/* Map Labels */}
-              <div className="absolute top-8 left-8 px-3 py-1 bg-secondary/20 backdrop-blur-sm rounded-full">
-                <span className="text-xs font-cairo text-foreground">شمال المغرب</span>
+              <div className="absolute top-6 left-6 px-3 py-1.5 bg-background/90 backdrop-blur-sm rounded-full border border-primary/20">
+                <span className="text-xs font-cairo font-semibold text-foreground">شمال المغرب</span>
               </div>
-              <div className="absolute bottom-8 right-8 px-3 py-1 bg-secondary/20 backdrop-blur-sm rounded-full">
-                <span className="text-xs font-cairo text-foreground">جنوب المغرب</span>
+              <div className="absolute bottom-6 right-6 px-3 py-1.5 bg-background/90 backdrop-blur-sm rounded-full border border-primary/20">
+                <span className="text-xs font-cairo font-semibold text-foreground">جنوب المغرب</span>
               </div>
             </div>
           </div>

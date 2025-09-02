@@ -2,6 +2,7 @@ import { Car, Shield, Gauge, Lock, ChevronLeft, ChevronRight } from 'lucide-reac
 import { useState } from 'react';
 import fleet1 from '@/assets/fleet-1.jpg';
 import fleet2 from '@/assets/fleet-2.jpg';
+import fleet3 from '@/assets/fleet-3.jpg';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 
 const FleetSection = () => {
@@ -45,7 +46,7 @@ const FleetSection = () => {
     },
     {
       name: 'BMW 7 Series Security',
-      image: null,
+      image: fleet3,
       type: 'سيارة فاخرة',
       features: [
         'درع خفيف الوزن',
