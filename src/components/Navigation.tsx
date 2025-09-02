@@ -37,7 +37,7 @@ const Navigation = () => {
           <div className="flex items-center space-x-4 space-x-reverse">
             <img src={logo} alt="Close Protection Forces" className="h-14 w-14 object-contain" />
             <div className="hidden md:block">
-              <h1 className="text-secondary font-tajawal font-bold text-xl">قوات الحماية القريبة</h1>
+              <h1 className="text-secondary font-tajawal font-bold text-xl">Close Protection Forces</h1>
               <p className="text-muted-foreground text-xs font-cairo">حماية احترافية على مدار الساعة</p>
             </div>
           </div>
