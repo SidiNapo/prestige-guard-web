@@ -1,6 +1,8 @@
 import { MapPin, Shield, Clock, Globe } from 'lucide-react';
+import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 
 const CoverageSection = () => {
+  const { ref, isVisible } = useScrollAnimation();
   const cities = [
     { name: 'الدار البيضاء', coverage: 'تغطية كاملة', response: '10 دقائق' },
     { name: 'الرباط', coverage: 'تغطية كاملة', response: '10 دقائق' },
@@ -21,7 +23,7 @@ const CoverageSection = () => {
 
       <div className="container mx-auto px-4 relative z-10">
         {/* Section Header */}
-        <div className="text-center mb-16">
+        <div className={`text-center mb-16 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
           <div className="inline-flex items-center space-x-2 space-x-reverse px-4 py-2 bg-secondary/20 backdrop-blur-sm rounded-full mb-4">
             <Globe className="h-4 w-4 text-secondary" />
             <span className="text-secondary font-cairo text-sm">تغطية وطنية</span>
@@ -76,8 +78,10 @@ const CoverageSection = () => {
               {cities.map((city, index) => (
                 <div
                   key={index}
-                  className="group p-6 bg-card rounded-2xl border border-border hover:border-secondary/50 transition-all duration-300 hover:shadow-lg"
-                  style={{ animationDelay: `${index * 100}ms` }}
+                  className={`group p-6 bg-card rounded-2xl border border-border hover:border-secondary/50 hover:shadow-lg transition-all duration-700 ${
+                    isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-10'
+                  }`}
+                  style={{ transitionDelay: `${index * 100}ms` }}
                 >
                   <div className="flex items-center justify-between">
                     <div className="flex items-center space-x-4 space-x-reverse">

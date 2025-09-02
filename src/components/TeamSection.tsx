@@ -1,8 +1,10 @@
 import { Award, Shield, Star, CheckCircle } from 'lucide-react';
 import team1 from '@/assets/team-1.jpg';
 import team2 from '@/assets/team-2.jpg';
+import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 
 const TeamSection = () => {
+  const { ref, isVisible } = useScrollAnimation();
   const teamMembers = [
     {
       name: 'أحمد المنصوري',

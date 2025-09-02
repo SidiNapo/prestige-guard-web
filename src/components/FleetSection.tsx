@@ -2,8 +2,10 @@ import { Car, Shield, Gauge, Lock, ChevronLeft, ChevronRight } from 'lucide-reac
 import { useState } from 'react';
 import fleet1 from '@/assets/fleet-1.jpg';
 import fleet2 from '@/assets/fleet-2.jpg';
+import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 
 const FleetSection = () => {
+  const { ref, isVisible } = useScrollAnimation();
   const [currentVehicle, setCurrentVehicle] = useState(0);
   
   const vehicles = [
