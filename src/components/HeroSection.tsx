@@ -101,7 +101,7 @@ const HeroSection = () => {
             </div>
 
             {/* Stats */}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-6 animate-fade-up animation-delay-600 relative">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-6 animate-fade-up animation-delay-600 relative mb-16 md:mb-20">
               {stats.map((stat, index) => (
                 <div
                   key={index}
@@ -120,6 +120,13 @@ const HeroSection = () => {
                   </div>
                 </div>
               ))}
+            </div>
+            
+            {/* Scroll Indicator */}
+            <div className="flex justify-center animate-bounce">
+              <div className="w-8 h-12 border-2 border-secondary/60 rounded-full flex justify-center bg-background/10 backdrop-blur-sm">
+                <div className="w-1 h-4 bg-secondary rounded-full mt-2 animate-pulse"></div>
+              </div>
             </div>
           </div>
         </div>
@@ -152,13 +159,6 @@ const HeroSection = () => {
         >
           <ChevronLeft className="h-6 w-6 text-foreground" />
         </button>
-      </div>
-
-      {/* Scroll Indicator */}
-      <div className="absolute bottom-32 md:bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce z-20">
-        <div className="w-8 h-12 border-2 border-secondary rounded-full flex justify-center bg-background/20 backdrop-blur-sm">
-          <div className="w-1 h-4 bg-secondary rounded-full mt-2 animate-pulse"></div>
-        </div>
       </div>
     </section>
   );
