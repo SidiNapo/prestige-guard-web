@@ -23,7 +23,7 @@ const HeroSection = () => {
   ];
 
   return (
-    <section id="home" className="relative h-screen overflow-hidden pt-20 md:pt-0">
+    <section id="home" className="relative min-h-screen overflow-hidden pt-20 md:pt-0 flex flex-col">
       {/* Background Carousel */}
       <div className="absolute inset-0">
         {slides.map((slide, index) => (
@@ -60,17 +60,17 @@ const HeroSection = () => {
       </div>
 
       {/* Content */}
-      <div className="relative z-10 h-full flex items-center">
+      <div className="relative z-10 flex-1 flex items-center justify-center py-8">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
             {/* Badge */}
-            <div className="inline-flex items-center space-x-2 space-x-reverse px-4 py-2 bg-secondary/20 backdrop-blur-sm rounded-full mb-6 animate-fade-in">
+            <div className="inline-flex items-center space-x-2 space-x-reverse px-4 py-2 bg-secondary/20 backdrop-blur-sm rounded-full mb-4 md:mb-6 animate-fade-in">
               <Shield className="h-4 w-4 text-secondary" />
               <span className="text-secondary font-cairo text-sm">الأمان الذي تستحقه</span>
             </div>
 
             {/* Main Heading */}
-            <h1 className="text-5xl md:text-7xl font-tajawal font-black text-foreground mb-6 animate-fade-up">
+            <h1 className="text-3xl sm:text-5xl md:text-7xl font-tajawal font-black text-foreground mb-4 md:mb-6 animate-fade-up">
               حماية{' '}
               <span className="text-transparent bg-clip-text bg-gradient-gold">
                 استثنائية
@@ -80,41 +80,41 @@ const HeroSection = () => {
             </h1>
 
             {/* Subheading */}
-            <p className="text-xl md:text-2xl text-foreground/80 font-cairo mb-8 animate-fade-up animation-delay-200">
+            <p className="text-base sm:text-xl md:text-2xl text-foreground/80 font-cairo mb-6 md:mb-8 animate-fade-up animation-delay-200">
               خدمات الحماية الشخصية الأكثر تطوراً في المغرب
             </p>
 
             {/* CTA Buttons */}
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12 animate-fade-up animation-delay-400">
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-3 md:gap-4 mb-8 md:mb-12 animate-fade-up animation-delay-400">
               <a
                 href="#contact"
-                className="inline-block px-8 py-4 bg-gradient-gold text-primary font-cairo font-bold text-lg rounded-xl hover:shadow-gold transition-all duration-300 hover:scale-105 w-full sm:w-auto text-center"
+                className="inline-block px-6 sm:px-8 py-3 md:py-4 bg-gradient-gold text-primary font-cairo font-bold text-base md:text-lg rounded-xl hover:shadow-gold transition-all duration-300 hover:scale-105 w-full sm:w-auto text-center"
               >
                 احجز استشارة مجانية
               </a>
               <a
                 href="#services"
-                className="inline-block px-8 py-4 border-2 border-secondary/30 text-foreground font-cairo font-bold text-lg rounded-xl hover:bg-secondary/10 backdrop-blur-sm transition-all duration-300 hover:scale-105 w-full sm:w-auto text-center"
+                className="inline-block px-6 sm:px-8 py-3 md:py-4 border-2 border-secondary/30 text-foreground font-cairo font-bold text-base md:text-lg rounded-xl hover:bg-secondary/10 backdrop-blur-sm transition-all duration-300 hover:scale-105 w-full sm:w-auto text-center"
               >
                 استكشف خدماتنا
               </a>
             </div>
 
             {/* Stats */}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 animate-fade-up animation-delay-600 relative z-30">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-6 animate-fade-up animation-delay-600 relative z-30 mb-20">
               {stats.map((stat, index) => (
                 <div
                   key={index}
-                  className="relative flex flex-col items-center p-4 md:p-6 bg-background/20 backdrop-blur-md rounded-xl border border-secondary/30 hover:bg-secondary/20 transition-all duration-300 group shadow-lg"
+                  className="relative flex flex-col items-center p-3 sm:p-4 md:p-6 bg-background/30 backdrop-blur-md rounded-xl border border-secondary/40 hover:bg-secondary/20 transition-all duration-300 group shadow-lg"
                 >
                   <div className="absolute inset-0 flex items-center justify-center opacity-10">
-                    <stat.icon className="h-20 w-20 text-secondary" />
+                    <stat.icon className="h-16 sm:h-20 w-16 sm:w-20 text-secondary" />
                   </div>
                   <div className="relative z-10 flex flex-col items-center">
-                    <span className="text-2xl md:text-3xl font-tajawal font-bold text-foreground mb-1">
+                    <span className="text-xl sm:text-2xl md:text-3xl font-tajawal font-bold text-foreground mb-1">
                       {stat.value}
                     </span>
-                    <span className="text-xs md:text-sm font-cairo text-foreground/90">
+                    <span className="text-[10px] sm:text-xs md:text-sm font-cairo text-foreground/90 text-center">
                       {stat.label}
                     </span>
                   </div>
@@ -155,7 +155,7 @@ const HeroSection = () => {
       </div>
 
       {/* Scroll Indicator */}
-      <div className="absolute bottom-8 right-8 animate-bounce z-30">
+      <div className="absolute bottom-32 md:bottom-8 right-4 md:right-8 animate-bounce z-20">
         <div className="w-8 h-12 border-2 border-secondary rounded-full flex justify-center bg-background/20 backdrop-blur-sm">
           <div className="w-1 h-4 bg-secondary rounded-full mt-2 animate-pulse"></div>
         </div>
