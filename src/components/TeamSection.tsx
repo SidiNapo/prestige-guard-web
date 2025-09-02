@@ -1,10 +1,8 @@
 import { Award, Shield, Star, CheckCircle } from 'lucide-react';
-import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 import team1 from '@/assets/team-1.jpg';
 import team2 from '@/assets/team-2.jpg';
 
 const TeamSection = () => {
-  const { ref: sectionRef, isVisible } = useScrollAnimation({ threshold: 0.2 });
   const teamMembers = [
     {
       name: 'أحمد المنصوري',
@@ -22,22 +20,6 @@ const TeamSection = () => {
       certifications: ['أمن دبلوماسي', 'قيادة تكتيكية', 'إدارة الأزمات'],
       specialties: ['حماية رجال الأعمال', 'التقييم الأمني'],
     },
-    {
-      name: 'عبد الرحمن بنعلي',
-      role: 'منسق العمليات الأمنية',
-      image: null,
-      experience: '10 سنوات',
-      certifications: ['تخطيط أمني', 'اتصالات متقدمة', 'لوجستيات أمنية'],
-      specialties: ['تنسيق الفرق', 'خطط الطوارئ'],
-    },
-    {
-      name: 'ياسين الفاسي',
-      role: 'أخصائي حماية متقدمة',
-      image: null,
-      experience: '8 سنوات',
-      certifications: ['قيادة دفاعية', 'أمن إلكتروني', 'مكافحة التجسس'],
-      specialties: ['النقل الآمن', 'الحماية السكنية'],
-    },
   ];
 
   const achievements = [
@@ -47,7 +29,7 @@ const TeamSection = () => {
   ];
 
   return (
-    <section ref={sectionRef} id="team" className="py-20 bg-background relative overflow-hidden">
+    <section id="team" className="py-20 bg-background relative overflow-hidden">
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-5">
         <div className="absolute inset-0" style={{
@@ -57,7 +39,7 @@ const TeamSection = () => {
 
       <div className="container mx-auto px-4 relative z-10">
         {/* Section Header */}
-        <div className={`text-center mb-16 ${isVisible ? 'animate-slideInUp' : 'opacity-0'}`}>
+        <div className="text-center mb-16">
           <div className="inline-flex items-center space-x-2 space-x-reverse px-4 py-2 bg-secondary/20 backdrop-blur-sm rounded-full mb-4">
             <Award className="h-4 w-4 text-secondary" />
             <span className="text-secondary font-cairo text-sm">فريق النخبة</span>
