@@ -101,19 +101,23 @@ const HeroSection = () => {
             </div>
 
             {/* Stats */}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 animate-fade-up animation-delay-600">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 animate-fade-up animation-delay-600 relative z-30">
               {stats.map((stat, index) => (
                 <div
                   key={index}
-                  className="flex flex-col items-center p-4 bg-background/10 backdrop-blur-sm rounded-xl border border-secondary/20 hover:bg-secondary/10 transition-all duration-300 group"
+                  className="relative flex flex-col items-center p-4 md:p-6 bg-background/20 backdrop-blur-md rounded-xl border border-secondary/30 hover:bg-secondary/20 transition-all duration-300 group shadow-lg"
                 >
-                  <stat.icon className="h-8 w-8 text-secondary mb-2 group-hover:animate-pulse" />
-                  <span className="text-3xl font-tajawal font-bold text-foreground mb-1">
-                    {stat.value}
-                  </span>
-                  <span className="text-sm font-cairo text-muted-foreground">
-                    {stat.label}
-                  </span>
+                  <div className="absolute inset-0 flex items-center justify-center opacity-10">
+                    <stat.icon className="h-20 w-20 text-secondary" />
+                  </div>
+                  <div className="relative z-10 flex flex-col items-center">
+                    <span className="text-2xl md:text-3xl font-tajawal font-bold text-foreground mb-1">
+                      {stat.value}
+                    </span>
+                    <span className="text-xs md:text-sm font-cairo text-foreground/90">
+                      {stat.label}
+                    </span>
+                  </div>
                 </div>
               ))}
             </div>
@@ -151,9 +155,9 @@ const HeroSection = () => {
       </div>
 
       {/* Scroll Indicator */}
-      <div className="absolute bottom-8 right-8 animate-bounce">
-        <div className="w-6 h-10 border-2 border-secondary/50 rounded-full flex justify-center">
-          <div className="w-1 h-3 bg-secondary rounded-full mt-2 animate-pulse"></div>
+      <div className="absolute bottom-8 right-8 animate-bounce z-30">
+        <div className="w-8 h-12 border-2 border-secondary rounded-full flex justify-center bg-background/20 backdrop-blur-sm">
+          <div className="w-1 h-4 bg-secondary rounded-full mt-2 animate-pulse"></div>
         </div>
       </div>
     </section>
