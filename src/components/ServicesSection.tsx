@@ -1,5 +1,6 @@
 import { Shield, Star, Building, Plane, Calendar, Lock } from 'lucide-react';
 import { useState } from 'react';
+import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 import serviceVip from '@/assets/service-vip.jpg';
 import serviceEvent from '@/assets/service-event.jpg';
 import serviceTourist from '@/assets/service-tourist.jpg';
@@ -9,6 +10,7 @@ import serviceResidential from '@/assets/service-residential.jpg';
 import ServiceDetailsDrawer from './ServiceDetailsDrawer';
 
 const ServicesSection = () => {
+  const { ref: sectionRef, isVisible } = useScrollAnimation({ threshold: 0.2 });
   const [selectedService, setSelectedService] = useState<any>(null);
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
 
@@ -226,10 +228,10 @@ const ServicesSection = () => {
   ];
 
   return (
-    <section id="services" className="py-20 bg-gradient-to-b from-background to-card">
+    <section ref={sectionRef} id="services" className="py-20 bg-gradient-to-b from-background to-card">
       <div className="container mx-auto px-4">
         {/* Section Header */}
-        <div className="text-center mb-16">
+        <div className={`text-center mb-16 ${isVisible ? 'animate-slideInUp' : 'opacity-0'}`}>
           <div className="inline-flex items-center space-x-2 space-x-reverse px-4 py-2 bg-secondary/20 backdrop-blur-sm rounded-full mb-4">
             <Shield className="h-4 w-4 text-secondary" />
             <span className="text-secondary font-cairo text-sm">خدمات متخصصة</span>
@@ -247,7 +249,9 @@ const ServicesSection = () => {
           {services.map((service, index) => (
             <div
               key={index}
-              className="group relative bg-card rounded-2xl overflow-hidden border border-border hover:border-secondary/50 transition-all duration-500 hover:shadow-gold hover:-translate-y-2"
+              className={`group relative bg-card rounded-2xl overflow-hidden border border-border hover:border-secondary/50 transition-all duration-500 hover:shadow-gold hover:-translate-y-2 ${
+                isVisible ? 'animate-scaleIn' : 'opacity-0'
+              }`}
               style={{ animationDelay: `${index * 100}ms` }}
             >
               {/* Image or Icon Background */}

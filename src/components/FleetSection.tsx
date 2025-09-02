@@ -1,9 +1,12 @@
 import { Car, Shield, Gauge, Lock, ChevronLeft, ChevronRight } from 'lucide-react';
 import { useState } from 'react';
+import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 import fleet1 from '@/assets/fleet-1.jpg';
 import fleet2 from '@/assets/fleet-2.jpg';
+import fleet3 from '@/assets/fleet-3.jpg';
 
 const FleetSection = () => {
+  const { ref: sectionRef, isVisible } = useScrollAnimation({ threshold: 0.2 });
   const [currentVehicle, setCurrentVehicle] = useState(0);
   
   const vehicles = [
@@ -43,7 +46,7 @@ const FleetSection = () => {
     },
     {
       name: 'BMW 7 Series Security',
-      image: null,
+      image: fleet3,
       type: 'سيارة فاخرة',
       features: [
         'درع خفيف الوزن',
@@ -69,10 +72,10 @@ const FleetSection = () => {
   };
 
   return (
-    <section id="fleet" className="py-20 bg-gradient-to-b from-card to-background">
+    <section ref={sectionRef} id="fleet" className="py-20 bg-gradient-to-b from-card to-background">
       <div className="container mx-auto px-4">
         {/* Section Header */}
-        <div className="text-center mb-16">
+        <div className={`text-center mb-16 ${isVisible ? 'animate-slideInUp' : 'opacity-0'}`}>
           <div className="inline-flex items-center space-x-2 space-x-reverse px-4 py-2 bg-secondary/20 backdrop-blur-sm rounded-full mb-4">
             <Car className="h-4 w-4 text-secondary" />
             <span className="text-secondary font-cairo text-sm">أسطول متطور</span>
@@ -87,7 +90,9 @@ const FleetSection = () => {
 
         {/* Vehicle Showcase */}
         <div className="max-w-6xl mx-auto">
-          <div className="bg-card rounded-3xl overflow-hidden border border-border shadow-2xl">
+          <div className={`bg-card rounded-3xl overflow-hidden border border-border shadow-2xl ${
+            isVisible ? 'animate-scaleIn animation-delay-200' : 'opacity-0'
+          }`}>
             <div className="grid grid-cols-1 lg:grid-cols-2">
               {/* Vehicle Image */}
               <div className="h-96 lg:h-full relative bg-gradient-to-br from-primary to-primary-glow">
