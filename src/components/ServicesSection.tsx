@@ -1,5 +1,6 @@
 import { Shield, Star, Building, Plane, Calendar, Lock } from 'lucide-react';
 import { useState } from 'react';
+import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 import serviceVip from '@/assets/service-vip.jpg';
 import serviceEvent from '@/assets/service-event.jpg';
 import serviceTourist from '@/assets/service-tourist.jpg';
@@ -11,6 +12,7 @@ import ServiceDetailsDrawer from './ServiceDetailsDrawer';
 const ServicesSection = () => {
   const [selectedService, setSelectedService] = useState<any>(null);
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
+  const { ref: sectionRef } = useScrollAnimation({ animationClass: 'animate-slide-up' });
 
   const services = [
     {
@@ -226,7 +228,7 @@ const ServicesSection = () => {
   ];
 
   return (
-    <section id="services" className="py-20 bg-gradient-to-b from-background to-card">
+    <section ref={sectionRef} id="services" className="py-20 bg-gradient-to-b from-background to-card" data-animate>
       <div className="container mx-auto px-4">
         {/* Section Header */}
         <div className="text-center mb-16">
