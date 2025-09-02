@@ -86,12 +86,18 @@ const HeroSection = () => {
 
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12 animate-fade-up animation-delay-400">
-              <button className="px-8 py-4 bg-gradient-gold text-primary font-cairo font-bold text-lg rounded-xl hover:shadow-gold transition-all duration-300 hover:scale-105 w-full sm:w-auto">
+              <a
+                href="#contact"
+                className="inline-block px-8 py-4 bg-gradient-gold text-primary font-cairo font-bold text-lg rounded-xl hover:shadow-gold transition-all duration-300 hover:scale-105 w-full sm:w-auto text-center"
+              >
                 احجز استشارة مجانية
-              </button>
-              <button className="px-8 py-4 border-2 border-secondary/30 text-foreground font-cairo font-bold text-lg rounded-xl hover:bg-secondary/10 backdrop-blur-sm transition-all duration-300 hover:scale-105 w-full sm:w-auto">
+              </a>
+              <a
+                href="#services"
+                className="inline-block px-8 py-4 border-2 border-secondary/30 text-foreground font-cairo font-bold text-lg rounded-xl hover:bg-secondary/10 backdrop-blur-sm transition-all duration-300 hover:scale-105 w-full sm:w-auto text-center"
+              >
                 استكشف خدماتنا
-              </button>
+              </a>
             </div>
 
             {/* Stats */}

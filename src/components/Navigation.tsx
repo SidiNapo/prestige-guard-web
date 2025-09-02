@@ -59,15 +59,18 @@ const Navigation = () => {
           {/* CTA Buttons */}
           <div className="hidden lg:flex items-center space-x-4 space-x-reverse">
             <a
-              href="tel:+212600000000"
+              href="tel:+212619784088"
               className="flex items-center space-x-2 space-x-reverse px-4 py-2 border border-secondary/30 rounded-lg hover:bg-secondary/10 transition-all duration-300 group"
             >
               <Phone className="h-4 w-4 text-secondary group-hover:animate-pulse" />
               <span className="font-cairo text-sm">اتصل الآن</span>
             </a>
-            <button className="px-6 py-2.5 bg-gradient-gold text-primary font-cairo font-semibold rounded-lg hover:shadow-gold transition-all duration-300 hover:scale-105">
+            <a
+              href="#contact"
+              className="px-6 py-2.5 bg-gradient-gold text-primary font-cairo font-semibold rounded-lg hover:shadow-gold transition-all duration-300 hover:scale-105"
+            >
               احجز استشارة
-            </button>
+            </a>
           </div>
 
           {/* Mobile Menu Button */}
@@ -100,15 +103,19 @@ const Navigation = () => {
             ))}
             <div className="pt-4 border-t border-border flex flex-col space-y-3">
               <a
-                href="tel:+212600000000"
+                href="tel:+212619784088"
                 className="flex items-center justify-center space-x-2 space-x-reverse px-4 py-3 border border-secondary/30 rounded-lg hover:bg-secondary/10 transition-all duration-300"
               >
                 <Phone className="h-4 w-4 text-secondary" />
                 <span className="font-cairo">اتصل الآن</span>
               </a>
-              <button className="px-6 py-3 bg-gradient-gold text-primary font-cairo font-semibold rounded-lg hover:shadow-gold transition-all duration-300">
+              <a
+                href="#contact"
+                onClick={() => setIsMobileMenuOpen(false)}
+                className="px-6 py-3 bg-gradient-gold text-primary font-cairo font-semibold rounded-lg hover:shadow-gold transition-all duration-300 text-center"
+              >
                 احجز استشارة
-              </button>
+              </a>
             </div>
           </div>
         </div>
