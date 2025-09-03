@@ -1,24 +1,58 @@
-import { Award, Shield, Star, CheckCircle } from 'lucide-react';
-import team1 from '@/assets/team-1.jpg';
-import team2 from '@/assets/team-2.jpg';
+import { useState } from 'react';
+import { Award, Shield, Star, CheckCircle, X, Medal, Target, Users } from 'lucide-react';
+import { Dialog, DialogContent, DialogTitle } from '@/components/ui/dialog';
 
 const TeamSection = () => {
+  const [selectedMember, setSelectedMember] = useState<any>(null);
+  
   const teamMembers = [
     {
-      name: 'أحمد المنصوري',
-      role: 'رئيس فريق الحماية',
-      image: team1,
+      name: 'أنس الهلالي',
+      role: 'مدرب محترف في الحماية المقربة',
+      image: '/lovable-uploads/4e422a12-48be-45b7-bc8d-7bc083c57c4a.png',
       experience: '15 سنة',
-      certifications: ['حماية VIP دولية', 'قتال قريب متقدم', 'إسعافات أولية'],
-      specialties: ['حماية المشاهير', 'أمن الفعاليات'],
+      certifications: ['دبلوم دولي EBSSA', 'TCCC متقدم', 'قيادة تكتيكية'],
+      specialties: ['حماية الشخصيات', 'تدريب احترافي'],
+      fullDescription: `أنا *أنس الهلالي*، مدرب محترف في مجال *الحماية المقربة (Close Protection)*، حاصل على عدة دبلومات وشهادات دولية في *الأمن الخاص، الحماية الشخصية، التكتيك الميداني،* والتدخلات الأمنية.
+      
+أسست مساري من خلال تدريبات مكثفة في أكاديميات عالمية، وتمكنت من بناء خبرة قوية في حماية الشخصيات الهامة، تنظيم وتأمين الفعاليات، وإعداد فرق أمن محترفة.`,
+      qualifications: [
+        'دبلوم دولي في الحماية المقربة من أكاديمية EBSSA',
+        'تكوينات متقدمة في TCCC، القيادة التكتيكية، والقتال القريب',
+        'خبرة ميدانية في تأمين الشخصيات والمناسبات الحساسة',
+        'مدرب معتمد في الدفاع الذاتي والتكتيك الأمني'
+      ],
+      services: [
+        'الحماية الشخصية للأفراد والشخصيات الهامة',
+        'تأمين تنقلات خاصة ومرافقة تكتيكية',
+        'تنظيم دورات تدريبية متقدمة في الأمن الخاص',
+        'إعداد وتأطير فرق أمن حسب المعايير الدولية'
+      ],
+      vision: 'نشر ثقافة الحماية الاحترافية، والرفع من مستوى الأمن الخاص في المغرب والعالم العربي.'
     },
     {
       name: 'محمد الإدريسي',
-      role: 'خبير أمن تنفيذي',
-      image: team2,
+      role: 'خبير أمن تكتيكي',
+      image: '/lovable-uploads/eb4442c3-5a53-4e47-9afe-3d8163a60c61.png',
       experience: '12 سنة',
       certifications: ['أمن دبلوماسي', 'قيادة تكتيكية', 'إدارة الأزمات'],
-      specialties: ['حماية رجال الأعمال', 'التقييم الأمني'],
+      specialties: ['عمليات خاصة', 'تأمين متقدم'],
+      fullDescription: `خبير في العمليات الأمنية الخاصة والتكتيك الميداني، متخصص في التخطيط الاستراتيجي للحماية وإدارة المخاطر الأمنية.
+      
+حاصل على شهادات دولية متعددة في مجال الأمن التكتيكي والعمليات الخاصة، مع خبرة واسعة في التدريب القتالي المتقدم.`,
+      qualifications: [
+        'شهادة دولية في الأمن الدبلوماسي',
+        'تدريب متقدم في القيادة التكتيكية',
+        'خبير معتمد في إدارة الأزمات الأمنية',
+        'مدرب قتال قريب ودفاع شخصي'
+      ],
+      services: [
+        'التخطيط الاستراتيجي للحماية الأمنية',
+        'تدريب الفرق على العمليات الخاصة',
+        'تقييم وإدارة المخاطر الأمنية',
+        'الإشراف على العمليات الميدانية الحساسة'
+      ],
+      vision: 'بناء فرق أمنية احترافية قادرة على التعامل مع أعقد التحديات الأمنية بكفاءة عالية.'
     },
   ];
 
@@ -53,29 +87,32 @@ const TeamSection = () => {
         </div>
 
         {/* Team Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16 max-w-4xl mx-auto">
           {teamMembers.map((member, index) => (
             <div
               key={index}
-              className="group relative bg-card rounded-2xl overflow-hidden border border-border hover:border-secondary/50 transition-all duration-500 hover:shadow-xl"
+              className="group relative bg-card rounded-2xl overflow-hidden border border-border hover:border-secondary/50 transition-all duration-500 hover:shadow-2xl cursor-pointer transform hover:-translate-y-2"
               style={{ animationDelay: `${index * 150}ms` }}
+              onClick={() => setSelectedMember(member)}
             >
               {/* Image */}
-              <div className="h-64 relative overflow-hidden bg-gradient-to-br from-primary to-primary-glow">
-                {member.image ? (
-                  <img
-                    src={member.image}
-                    alt={member.name}
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
-                  />
-                ) : (
-                  <div className="w-full h-full flex items-center justify-center">
-                    <Shield className="h-24 w-24 text-secondary/20" />
-                  </div>
-                )}
+              <div className="h-80 relative overflow-hidden bg-gradient-to-br from-primary to-primary-glow">
+                <img
+                  src={member.image}
+                  alt={member.name}
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                />
                 
                 {/* Overlay Gradient */}
-                <div className="absolute inset-0 bg-gradient-to-t from-background via-background/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                <div className="absolute inset-0 bg-gradient-to-t from-background via-background/50 to-transparent opacity-60 group-hover:opacity-40 transition-opacity duration-500"></div>
+                
+                {/* Click Indicator */}
+                <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <div className="bg-secondary/90 backdrop-blur-sm px-6 py-3 rounded-full flex items-center gap-2">
+                    <span className="text-primary font-cairo font-semibold">عرض التفاصيل</span>
+                    <Shield className="h-5 w-5 text-primary" />
+                  </div>
+                </div>
                 
                 {/* Experience Badge */}
                 <div className="absolute top-4 left-4 px-3 py-1 bg-secondary/90 backdrop-blur-sm rounded-full">
@@ -126,6 +163,110 @@ const TeamSection = () => {
             </div>
           ))}
         </div>
+
+        {/* Team Member Modal */}
+        <Dialog open={!!selectedMember} onOpenChange={() => setSelectedMember(null)}>
+          <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto bg-gradient-to-br from-background via-background to-primary/5 border-secondary/20">
+            <DialogTitle className="sr-only">تفاصيل عضو الفريق</DialogTitle>
+            {selectedMember && (
+              <div className="relative">
+                {/* Close Button */}
+                <button
+                  onClick={() => setSelectedMember(null)}
+                  className="absolute -top-2 -right-2 z-50 w-10 h-10 bg-secondary/20 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-secondary/30 transition-colors"
+                >
+                  <X className="h-5 w-5 text-foreground" />
+                </button>
+                
+                {/* Header with Image */}
+                <div className="relative h-72 rounded-2xl overflow-hidden mb-8">
+                  <img
+                    src={selectedMember.image}
+                    alt={selectedMember.name}
+                    className="w-full h-full object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-background via-background/60 to-transparent"></div>
+                  <div className="absolute bottom-6 right-6">
+                    <h2 className="text-4xl font-tajawal font-bold text-foreground mb-2">{selectedMember.name}</h2>
+                    <p className="text-xl text-secondary font-cairo">{selectedMember.role}</p>
+                  </div>
+                  <div className="absolute top-6 left-6 px-4 py-2 bg-secondary/90 backdrop-blur-sm rounded-full">
+                    <span className="text-primary font-cairo font-bold">خبرة {selectedMember.experience}</span>
+                  </div>
+                </div>
+                
+                {/* Content Grid */}
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 px-2">
+                  {/* About Section */}
+                  <div className="space-y-6">
+                    <div>
+                      <h3 className="text-xl font-tajawal font-bold text-secondary mb-4 flex items-center gap-2">
+                        <Users className="h-5 w-5" />
+                        نبذة شخصية
+                      </h3>
+                      <p className="text-muted-foreground font-cairo leading-relaxed whitespace-pre-line">
+                        {selectedMember.fullDescription}
+                      </p>
+                    </div>
+                    
+                    {/* Vision */}
+                    <div className="p-6 bg-secondary/10 rounded-xl border border-secondary/20">
+                      <h4 className="text-lg font-tajawal font-bold text-secondary mb-3 flex items-center gap-2">
+                        <Target className="h-5 w-5" />
+                        الرؤية
+                      </h4>
+                      <p className="text-muted-foreground font-cairo">{selectedMember.vision}</p>
+                    </div>
+                  </div>
+                  
+                  {/* Qualifications & Services */}
+                  <div className="space-y-6">
+                    {/* Qualifications */}
+                    <div>
+                      <h3 className="text-xl font-tajawal font-bold text-secondary mb-4 flex items-center gap-2">
+                        <Medal className="h-5 w-5" />
+                        الخبرات والشهادات
+                      </h3>
+                      <div className="space-y-3">
+                        {selectedMember.qualifications.map((qual: string, idx: number) => (
+                          <div key={idx} className="flex items-start gap-3">
+                            <CheckCircle className="h-5 w-5 text-accent mt-0.5 flex-shrink-0" />
+                            <span className="text-muted-foreground font-cairo text-sm">{qual}</span>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                    
+                    {/* Services */}
+                    <div>
+                      <h3 className="text-xl font-tajawal font-bold text-secondary mb-4 flex items-center gap-2">
+                        <Shield className="h-5 w-5" />
+                        الخدمات
+                      </h3>
+                      <div className="space-y-3">
+                        {selectedMember.services.map((service: string, idx: number) => (
+                          <div key={idx} className="p-3 bg-primary/5 rounded-lg border border-primary/10 hover:bg-primary/10 transition-colors">
+                            <span className="text-muted-foreground font-cairo text-sm">{service}</span>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+                {/* Action Buttons */}
+                <div className="mt-8 flex flex-wrap gap-4 justify-center">
+                  <button className="px-8 py-3 bg-gradient-gold text-primary font-cairo font-semibold rounded-full hover:shadow-lg transform hover:scale-105 transition-all duration-300">
+                    احجز استشارة
+                  </button>
+                  <button className="px-8 py-3 bg-primary/10 text-foreground font-cairo font-semibold rounded-full border border-primary/20 hover:bg-primary/20 transition-all duration-300">
+                    تواصل معنا
+                  </button>
+                </div>
+              </div>
+            )}
+          </DialogContent>
+        </Dialog>
 
         {/* Achievements */}
         <div className="bg-gradient-to-r from-primary via-primary-glow to-primary rounded-2xl p-8">
