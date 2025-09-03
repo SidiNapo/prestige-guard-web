@@ -1,6 +1,6 @@
 import { MapPin, Shield, Clock, Globe } from 'lucide-react';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
-import ModernMap from '@/components/ModernMap';
+import moroccoMap from '@/assets/morocco-map.jpg';
 
 const CoverageSection = () => {
   const { ref: sectionRef, isVisible } = useScrollAnimation({ threshold: 0.2 });
@@ -43,10 +43,53 @@ const CoverageSection = () => {
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          {/* Modern Interactive Map */}
+          {/* Map Visualization */}
           <div className={`relative ${isVisible ? 'animate-slideInLeft' : 'opacity-0'}`}>
-            <div className="aspect-square rounded-3xl relative">
-              <ModernMap cities={cities} />
+            <div className="aspect-square rounded-3xl relative overflow-hidden shadow-2xl">
+              <img 
+                src={moroccoMap}
+                alt="Morocco Coverage Map"
+                className="w-full h-full object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-background/20 to-transparent"></div>
+              
+              {/* Animated City Markers */}
+              <div className="absolute inset-0">
+                {/* Major Cities with Pulsing Dots */}
+                <div className="absolute top-[25%] left-[45%] transform -translate-x-1/2">
+                  <div className="relative">
+                    <div className="w-3 h-3 bg-secondary rounded-full animate-pulse"></div>
+                    <div className="absolute inset-0 w-3 h-3 bg-secondary rounded-full animate-ping"></div>
+                  </div>
+                </div>
+                <div className="absolute top-[35%] left-[42%] transform -translate-x-1/2">
+                  <div className="relative">
+                    <div className="w-3 h-3 bg-secondary rounded-full animate-pulse animation-delay-200"></div>
+                    <div className="absolute inset-0 w-3 h-3 bg-secondary rounded-full animate-ping animation-delay-200"></div>
+                  </div>
+                </div>
+                <div className="absolute bottom-[40%] left-[35%] transform -translate-x-1/2">
+                  <div className="relative">
+                    <div className="w-3 h-3 bg-accent rounded-full animate-pulse animation-delay-400"></div>
+                    <div className="absolute inset-0 w-3 h-3 bg-accent rounded-full animate-ping animation-delay-400"></div>
+                  </div>
+                </div>
+                <div className="absolute top-[20%] right-[40%] transform -translate-x-1/2">
+                  <div className="relative">
+                    <div className="w-3 h-3 bg-secondary rounded-full animate-pulse animation-delay-600"></div>
+                    <div className="absolute inset-0 w-3 h-3 bg-secondary rounded-full animate-ping animation-delay-600"></div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Map Labels */}
+              <div className="absolute top-8 left-8 px-4 py-2 bg-secondary/90 backdrop-blur-sm rounded-full">
+                <span className="text-sm font-cairo font-semibold text-primary">تغطية شاملة</span>
+              </div>
+              <div className="absolute bottom-8 right-8 flex items-center space-x-2 space-x-reverse px-4 py-2 bg-background/90 backdrop-blur-sm rounded-full">
+                <Shield className="h-4 w-4 text-secondary" />
+                <span className="text-sm font-cairo font-semibold text-foreground">10 مدن رئيسية</span>
+              </div>
             </div>
           </div>
 
