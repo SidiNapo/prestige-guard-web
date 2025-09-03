@@ -249,22 +249,7 @@ const TrainingSection = () => {
                     </div>
                     
                     {/* Course Info */}
-                    <div className="mt-6 p-4 bg-secondary/10 rounded-xl">
-                      <div className="space-y-3">
-                        <div className="flex justify-between">
-                          <span className="text-muted-foreground font-cairo">المدة:</span>
-                          <span className="font-cairo font-semibold">{selectedCourse.duration}</span>
-                        </div>
-                        <div className="flex justify-between">
-                          <span className="text-muted-foreground font-cairo">البدء القادم:</span>
-                          <span className="font-cairo font-semibold text-secondary">{selectedCourse.nextStart}</span>
-                        </div>
-                        <div className="flex justify-between">
-                          <span className="text-muted-foreground font-cairo">الاستثمار:</span>
-                          <span className="font-tajawal font-bold text-2xl text-secondary">{selectedCourse.price}</span>
-                        </div>
-                      </div>
-                    </div>
+                    
                   </div>
                 </div>
                 
