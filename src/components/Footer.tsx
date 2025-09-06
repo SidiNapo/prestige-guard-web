@@ -1,36 +1,45 @@
 import { Shield, Phone, Mail, MapPin, Facebook, Instagram, Twitter, Linkedin } from 'lucide-react';
 const logo = '/lovable-uploads/299a0b3d-16b0-498a-b224-fd3d88d44733.png';
-
 const Footer = () => {
   const currentYear = new Date().getFullYear();
-
-  const quickLinks = [
-    { name: 'الرئيسية', href: '#home' },
-    { name: 'خدماتنا', href: '#services' },
-    { name: 'فريقنا', href: '#team' },
-    { name: 'مركباتنا', href: '#fleet' },
-    { name: 'التغطية', href: '#coverage' },
-    { name: 'اتصل بنا', href: '#contact' },
-  ];
-
-  const services = [
-    'حماية المشاهير',
-    'حماية رجال الأعمال',
-    'حماية السياح',
-    'حماية الفعاليات',
-    'الأمن الشخصي',
-    'الحماية السكنية',
-  ];
-
-  const socialLinks = [
-    { icon: Facebook, href: '#', label: 'Facebook' },
-    { icon: Instagram, href: '#', label: 'Instagram' },
-    { icon: Twitter, href: '#', label: 'Twitter' },
-    { icon: Linkedin, href: '#', label: 'LinkedIn' },
-  ];
-
-  return (
-    <footer className="bg-gradient-to-b from-card to-background border-t border-border">
+  const quickLinks = [{
+    name: 'الرئيسية',
+    href: '#home'
+  }, {
+    name: 'خدماتنا',
+    href: '#services'
+  }, {
+    name: 'فريقنا',
+    href: '#team'
+  }, {
+    name: 'مركباتنا',
+    href: '#fleet'
+  }, {
+    name: 'التغطية',
+    href: '#coverage'
+  }, {
+    name: 'اتصل بنا',
+    href: '#contact'
+  }];
+  const services = ['حماية المشاهير', 'حماية رجال الأعمال', 'حماية السياح', 'حماية الفعاليات', 'الأمن الشخصي', 'الحماية السكنية'];
+  const socialLinks = [{
+    icon: Facebook,
+    href: '#',
+    label: 'Facebook'
+  }, {
+    icon: Instagram,
+    href: '#',
+    label: 'Instagram'
+  }, {
+    icon: Twitter,
+    href: '#',
+    label: 'Twitter'
+  }, {
+    icon: Linkedin,
+    href: '#',
+    label: 'LinkedIn'
+  }];
+  return <footer className="bg-gradient-to-b from-card to-background border-t border-border">
       <div className="container mx-auto px-4 py-12">
         {/* Main Footer Content */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
@@ -51,16 +60,9 @@ const Footer = () => {
               نحن رواد خدمات الحماية الشخصية في المغرب، نقدم حلولاً أمنية متطورة بمعايير دولية لضمان سلامتكم وراحة بالكم.
             </p>
             <div className="flex space-x-3 space-x-reverse">
-              {socialLinks.map((social, index) => (
-                <a
-                  key={index}
-                  href={social.href}
-                  aria-label={social.label}
-                  className="p-2 bg-secondary/10 rounded-lg hover:bg-secondary/20 transition-colors duration-300"
-                >
+              {socialLinks.map((social, index) => <a key={index} href={social.href} aria-label={social.label} className="p-2 bg-secondary/10 rounded-lg hover:bg-secondary/20 transition-colors duration-300">
                   <social.icon className="h-5 w-5 text-secondary" />
-                </a>
-              ))}
+                </a>)}
             </div>
           </div>
 
@@ -70,16 +72,11 @@ const Footer = () => {
               روابط سريعة
             </h4>
             <ul className="space-y-2">
-              {quickLinks.map((link, index) => (
-                <li key={index}>
-                  <a
-                    href={link.href}
-                    className="text-sm text-muted-foreground font-cairo hover:text-secondary transition-colors duration-300"
-                  >
+              {quickLinks.map((link, index) => <li key={index}>
+                  <a href={link.href} className="text-sm text-muted-foreground font-cairo hover:text-secondary transition-colors duration-300">
                     {link.name}
                   </a>
-                </li>
-              ))}
+                </li>)}
             </ul>
           </div>
 
@@ -89,13 +86,11 @@ const Footer = () => {
               خدماتنا
             </h4>
             <ul className="space-y-2">
-              {services.map((service, index) => (
-                <li key={index}>
+              {services.map((service, index) => <li key={index}>
                   <span className="text-sm text-muted-foreground font-cairo">
                     {service}
                   </span>
-                </li>
-              ))}
+                </li>)}
             </ul>
           </div>
 
@@ -107,21 +102,13 @@ const Footer = () => {
             <div className="space-y-3">
               <div className="flex items-center space-x-3 space-x-reverse">
                 <Phone className="h-4 w-4 text-secondary flex-shrink-0" />
-                <a
-                  href="tel:+212619784088"
-                  className="text-sm text-muted-foreground font-cairo hover:text-secondary transition-colors"
-                  dir="ltr"
-                >
+                <a href="tel:+212619784088" className="text-sm text-muted-foreground font-cairo hover:text-secondary transition-colors" dir="ltr">
                   +212 619-784088
                 </a>
               </div>
               <div className="flex items-center space-x-3 space-x-reverse">
                 <Mail className="h-4 w-4 text-secondary flex-shrink-0" />
-                <a
-                  href="mailto:info@cpforces.ma"
-                  className="text-sm text-muted-foreground font-cairo hover:text-secondary transition-colors"
-                  dir="ltr"
-                >
+                <a href="mailto:info@cpforces.ma" className="text-sm text-muted-foreground font-cairo hover:text-secondary transition-colors" dir="ltr">
                   info@cpforces.ma
                 </a>
               </div>
@@ -134,10 +121,7 @@ const Footer = () => {
             </div>
 
             {/* Emergency Button */}
-            <a
-              href="tel:+212619784088"
-              className="inline-flex items-center space-x-2 space-x-reverse mt-4 px-4 py-2 bg-destructive text-foreground font-cairo font-semibold text-sm rounded-lg hover:bg-destructive/90 transition-all duration-300 group"
-            >
+            <a href="tel:+212619784088" className="inline-flex items-center space-x-2 space-x-reverse mt-4 px-4 py-2 bg-destructive text-foreground font-cairo font-semibold text-sm rounded-lg hover:bg-destructive/90 transition-all duration-300 group">
               <Phone className="h-4 w-4 group-hover:animate-pulse" />
               <span>خط الطوارئ</span>
             </a>
@@ -150,20 +134,10 @@ const Footer = () => {
             <div className="text-sm text-muted-foreground font-cairo text-center md:text-right">
               © {currentYear} قوات الحماية القريبة. جميع الحقوق محفوظة.
             </div>
-            <div className="flex items-center space-x-4 space-x-reverse text-sm text-muted-foreground font-cairo">
-              <a href="#" className="hover:text-secondary transition-colors">
-                سياسة الخصوصية
-              </a>
-              <span>|</span>
-              <a href="#" className="hover:text-secondary transition-colors">
-                الشروط والأحكام
-              </a>
-            </div>
+            
           </div>
         </div>
       </div>
-    </footer>
-  );
+    </footer>;
 };
-
 export default Footer;
