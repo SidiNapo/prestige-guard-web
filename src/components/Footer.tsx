@@ -59,11 +59,7 @@ const Footer = () => {
             <p className="text-sm text-muted-foreground font-cairo mb-4">
               نحن رواد خدمات الحماية الشخصية في المغرب، نقدم حلولاً أمنية متطورة بمعايير دولية لضمان سلامتكم وراحة بالكم.
             </p>
-            <div className="flex space-x-3 space-x-reverse">
-              {socialLinks.map((social, index) => <a key={index} href={social.href} aria-label={social.label} className="p-2 bg-secondary/10 rounded-lg hover:bg-secondary/20 transition-colors duration-300">
-                  <social.icon className="h-5 w-5 text-secondary" />
-                </a>)}
-            </div>
+            
           </div>
 
           {/* Quick Links */}
